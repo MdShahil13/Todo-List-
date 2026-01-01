@@ -10,8 +10,8 @@ from email.mime.multipart import MIMEMultipart
 app = Flask(__name__)
 tasks = []
 
-sender_email = "mdsahilshaikh1506@gmail.com"
-sender_password = "borw qino pnst gucv"
+sender_email = "Your Mail Id"
+sender_password = "Your - App - Password"
 
 def send_email(to_email, subject, body):
     server = smtplib.SMTP('smtp.gmail.com', 587)
