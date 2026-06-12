@@ -61,6 +61,15 @@ def delete_task():
         tasks.remove(task)
     return redirect(url_for('index'))
 
+@app.route('/update', methods=['POST'])
+def update_task():
+    old_task = request.form['old_task']
+    new_task = request.form['new_task']
+    if old_task in tasks:
+        index = tasks.index(old_task)
+        tasks[index] = new_task
+    return redirect(url_for('index'))
+
 if __name__ == "__main__":
     threading.Thread(target=run_scheduler, daemon=True).start()
     app.run(debug=True)
