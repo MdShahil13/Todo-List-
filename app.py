@@ -6,12 +6,16 @@ import threading
 from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 tasks = []
 
-sender_email = "Your Mail Id"
-sender_password = "Your - App - Password"
+sender_email = os.getenv("SENDER_EMAIL")
+sender_password = os.getenv("SENDER_PASSWORD")
 
 def send_email(to_email, subject, body):
     server = smtplib.SMTP('smtp.gmail.com', 587)
